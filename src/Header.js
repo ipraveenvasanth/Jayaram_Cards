@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const App = () => {
+const Header = () => {
   return (
-    <View>
-      <Text>App</Text>
+    <View >
+      <Text style={{color:"white",fontSize:20,}}>Jayaram Cards</Text>
     </View>
   )
 }
 
-export default App
+export default Header
 
 const styles = StyleSheet.create({})
