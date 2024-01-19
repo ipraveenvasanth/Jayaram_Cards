@@ -1,12 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Modal from './Modal'
 import Dropdown from './Dropdown'
 
+import { useEffect } from 'react';
+
+import SplashScreen from 'react-native-splash-screen';
+
+
 
 const App = () => {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <View style={styles.container}>
       <View style={{ flex: 0.075, backgroundColor: "#363E8E", justifyContent: "center", alignItems: "flex-start", paddingLeft: 10 }}>

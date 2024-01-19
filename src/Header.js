@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <View >
-      <Text style={{color:"white",fontSize:20,}}>Jayaram Cards</Text>
+      <Text style={{ color: "white", fontSize: 20, marginLeft: 10 }}>Jayaram Cards</Text>
     </View>
   )
 }

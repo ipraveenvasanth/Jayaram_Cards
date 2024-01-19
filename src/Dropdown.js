@@ -4,13 +4,13 @@ import { Dropdown } from 'react-native-element-dropdown';
 // import AntDesign from '@expo/vector-icons/AntDesign';
 
 const data = [
-    { label: 'A3 SIZE GLOSSY LAMINATION', value: '1' },
-    { label: 'A3 SIZE MATT LAMINATION', value: '2' },
-    { label: 'A3 SIZE DRIPOFF', value: '3' },
-    { label: 'A3 SIZE MATT LAMINATION', value: '4' },
-    { label: 'A3 SIZE DRIPOFF', value: '5' },
-    { label: 'A3 SIZE MATT LAMINATION', value: '6' },
-    { label: 'A3 SIZE DRIPOFF', value: '7' },
+    { label: 'A3 SIZE GLOSSY LAMINATION', value: '1', id: 1 },
+    { label: 'A3 SIZE MATT LAMINATION', value: '2', id: 2 },
+    { label: 'A3 SIZE DRIPOFF', value: '3', id: 3 },
+    { label: 'A3 SIZE MATT LAMINATION', value: '4', id: 4 },
+    { label: 'A3 SIZE DRIPOFF', value: '5', id: 5 },
+    { label: 'A3 SIZE MATT LAMINATION', value: '6', id: 6 },
+    { label: 'A3 SIZE DRIPOFF', value: '7', id: 7 },
 ];
 
 const App = () => {
@@ -28,13 +28,22 @@ const App = () => {
         return null;
     };
 
+    const Circle = () => {
+        return (
+            <Image source={{ uri: "https://i.pinimg.com/736x/cd/f7/3f/cdf73f2ee218ab8705f762623d9eeb9f.jpg" }} style={styles.cicle} />
+        )
+    }
+    const Dotcircle = () => {
+        return (
+            <Image source={{ uri: "https://w7.pngwing.com/pngs/752/449/png-transparent-at-sign-computer-icons-radio-button-miscellaneous-monochrome-black-thumbnail.png" }} style={styles.icon} />
+        )
+    }
     const renderItem = item => {
         return (
             <View style={styles.item}>
                 <Text style={styles.textItem}>{item.label}</Text>
-                {item.value === value && (
-                    <Image source={{ uri: "https://w7.pngwing.com/pngs/752/449/png-transparent-at-sign-computer-icons-radio-button-miscellaneous-monochrome-black-thumbnail.png" }} style={styles.icon} />
-                )}
+
+                {item.value === value ? <Dotcircle /> : <Circle />}
             </View>
         );
     };
@@ -110,13 +119,18 @@ const styles = StyleSheet.create({
     img1: {
         width: 25,
         height: 28,
-        resizeMode: "cover",
-        marginRight: 10
+        resizeMode: "contain",
+        marginRight: 20
     },
     icon: {
-        width: 15,
+        width: 18,
         height: 18,
         resizeMode: "contain",
+    },
+    cicle: {
+        width: 25,
+        height: 18,
+        resizeMode: "cover",
     },
     item: {
         padding: 17,
@@ -127,6 +141,7 @@ const styles = StyleSheet.create({
     textItem: {
         flex: 1,
         fontSize: 16,
+        color: "black"
     },
     placeholderStyle: {
         fontSize: 16,
@@ -142,6 +157,7 @@ const styles = StyleSheet.create({
     inputSearchStyle: {
         height: 40,
         fontSize: 16,
+        color: "black"
 
     },
 });
