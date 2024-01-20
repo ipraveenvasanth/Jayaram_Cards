@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-// import AntDesign from '@expo/vector-icons/AntDesign';
 
 const data = [
     { label: 'A3 SIZE GLOSSY LAMINATION', value: '1', id: 1 },
@@ -17,33 +16,25 @@ const App = () => {
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
 
-    const renderLabel = () => {
-        if (isFocus) {
-            return (
-                <Text style={[styles.label, !isFocus && { color: 'black' }]}>
-                    Select product here
-                </Text>
-            );
-        }
-        return null;
-    };
+    const renderLabel = () => (
+        isFocus && (
+            <Text style={[styles.label, { color: !isFocus ? 'black' : 'grey' }]}>
+                Select product here
+            </Text>
+        )
+    );
 
-    const Circle = () => {
-        return (
-            <Image source={{ uri: "https://i.pinimg.com/736x/cd/f7/3f/cdf73f2ee218ab8705f762623d9eeb9f.jpg" }} style={styles.cicle} />
-        )
-    }
-    const Dotcircle = () => {
-        return (
-            <Image source={{ uri: "https://w7.pngwing.com/pngs/752/449/png-transparent-at-sign-computer-icons-radio-button-miscellaneous-monochrome-black-thumbnail.png" }} style={styles.icon} />
-        )
-    }
+
     const renderItem = item => {
         return (
             <View style={styles.item}>
                 <Text style={styles.textItem}>{item.label}</Text>
 
-                {item.value === value ? <Dotcircle /> : <Circle />}
+                {item.value === value ? (
+                    <Image source={{ uri: "https://w7.pngwing.com/pngs/752/449/png-transparent-at-sign-computer-icons-radio-button-miscellaneous-monochrome-black-thumbnail.png" }} style={styles.icon} />
+                ) : (
+                    <Image source={{ uri: "https://i.pinimg.com/736x/cd/f7/3f/cdf73f2ee218ab8705f762623d9eeb9f.jpg" }} style={styles.cicle} />
+                )}
             </View>
         );
     };

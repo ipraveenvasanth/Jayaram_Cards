@@ -10,7 +10,6 @@ const data = [
     { quantity: 5000, price: 2500 },
     { quantity: 10000, price: 2500 },
 ];
-
 const RenderItem = ({ item }) => (
     <View style={styles.item}>
         <View style={styles.rowContainer}>
@@ -22,17 +21,17 @@ const RenderItem = ({ item }) => (
 
 const Modal = () => {
     return (
-        <View>
-            <View style={{ height: 100, width: '100%', backgroundColor: "white", flexDirection: "row" }}>
-                <Image source={{ uri: "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" }} style={{ height: "90%", width: "20%", borderRadius: 5, margin: 10, alignSelf: "center" }} />
-                <View style={{ justifyContent: "center", marginLeft: 15 }}>
+        <View style={styles.modalContainer}>
+            <View style={styles.headerContainer}>
+                <Image
+                    source={{ uri: "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" }}
+                    style={styles.imageStyle}
+                />
+                <View style={styles.textContainer}>
                     <Text style={styles.font}>Product Code: T100</Text>
                     <Text style={styles.font1}>Minimum order: 100</Text>
                 </View>
-
-
             </View>
-
 
             <FlatList
                 data={data}
@@ -45,6 +44,28 @@ const Modal = () => {
 };
 
 const styles = {
+
+    modalContainer: {
+        // styles for modal container
+    },
+    headerContainer: {
+        height: 100,
+        width: '100%',
+        backgroundColor: "white",
+        flexDirection: "row",
+        padding: 10,
+    },
+    imageStyle: {
+        width: 100,
+        height: 100,
+        borderRadius: 5,
+        alignSelf: "center",
+    },
+    textContainer: {
+        flex: 2,
+        justifyContent: "center",
+        marginLeft: 15,
+    },
     list: {
         padding: 2,
     },
@@ -52,7 +73,6 @@ const styles = {
         marginVertical: 1,
         backgroundColor: 'white',
         padding: 10,
-        // borderRadius: 2,
         borderBottomWidth: 0.8,
         borderBottomColor: "black"
     },
@@ -65,12 +85,11 @@ const styles = {
         color: 'black',
         fontWeight: '500',
         marginRight: "30%"
-
     },
     rowContainer: {
-        flexDirection: 'row', // Set the row direction
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 15 // Optional: Align items in the row
+        paddingHorizontal: 15
     },
     font: {
         color: "black",
@@ -82,7 +101,6 @@ const styles = {
         color: 'black',
         fontWeight: "400",
         marginTop: 3
-
     }
 };
 
